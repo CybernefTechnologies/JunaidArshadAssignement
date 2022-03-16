@@ -1,24 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {useState, useEffect, Fragment} from 'react';
+import Header from './components/Header/Header';
+import Profile from './components/Profile/Profile';
 function App() {
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('https://randomuser.me/api/');
+      if(!res.ok) {
+        throw new Error('network error');
+      }
+      const resData = await res.json();
+      console.log(resData);
+      const userDataUpdate = resData.results;
+      setUserData(userDataUpdate);
+      }
+      catch(err) {
+        console.log(err.message);
+      }
+    }
+    fetchData();
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      {
+        !userData ? <p>Page is Loading</p> : null
+      }
+      {
+        userData ?
+        <Fragment>
+          <Header userData={userData}></Header>
+          <main>
+            <Profile userData={userData}></Profile>
+          </main>
+        </Fragment>
+        
+        
+        
+        :null
+      }
+      
+    </Fragment>
   );
 }
 

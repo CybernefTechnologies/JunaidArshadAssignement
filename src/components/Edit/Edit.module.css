@@ -1,0 +1,13 @@
+.editBox {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+.editBox span {
+    display: inline-block;
+}
+.iconContainer {
+    font-size: 22px;
+    cursor: pointer;
+}

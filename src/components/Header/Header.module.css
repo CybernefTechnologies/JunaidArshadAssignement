@@ -1,0 +1,25 @@
+.header {
+    background-color: rgba(52, 152, 219,1.0);
+}
+.header nav {
+    display: flex;
+    padding: 10px 20px;
+}
+.header nav ul {
+    display: flex;
+    column-gap: 20px;
+    list-style: none;
+    margin-left: auto;
+    
+}
+.header nav ul li a {
+    display: flex;
+    column-gap: 20px;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+.header nav ul li a img {
+    border-radius: 50%;
+    width: 80px;
+}

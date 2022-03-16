@@ -1,0 +1,14 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    max-width: 1140px;
+    width: 100%;
+    margin: 40px auto;
+    column-gap: 30px;
+}
+.box {
+    text-align: center;
+}
+.box img {
+    border-radius: 50%;
+}
